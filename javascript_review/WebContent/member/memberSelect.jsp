@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="menu.jsp" %>
+<%@include file="../menu.jsp" %>
 	<h3 class="page_title">내정보조회</h3>
 	<div><span class="label">아이디: </span><span> ? </span></div>
 	<div><span class="label">비번: </span><span> ? </span></div>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="menu.jsp"%>
+	<%@include file="../menu.jsp"%>
 	<h3 class="page_title">게시글조회</h3>
 	<div>
 	<ul class="search">

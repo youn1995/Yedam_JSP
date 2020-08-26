@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="menu.jsp" %>
+<%@include file="../menu.jsp" %>
 	<h3 class="page_title">게시글보기</h3>
 	<div><span class="label">게시글번호: </span><span> ? </span></div>
 	<div><span class="label">제목: </span><span> ? </span></div>

@@ -28,7 +28,7 @@
 </script>
 </head>
 <body>
-	<%@include file="menu.jsp"%>
+	<%@include file="../menu.jsp"%>
 	<h3 class="page_title">게시글작성</h3>
 	<form method="post" name="frm" id="frm" action="boardInsertProc.jsp"
 		onsubmit="return inputCheck()">
