@@ -20,12 +20,13 @@ img {
 			var img = document.createElement("img");
 			img.src = imgArr[i];
 			document.body.appendChild(img);	
-			img.onmouseover = function() {
+			img.addEventListener("mouseover", function(){
 				this.style.width = "200px";
-			}
-			img.onmouseout = function() {
+			});
+			img.addEventListener("mouseout", function(){
 				this.style.width = "100px";
-			}
+			});
+	
 		}
 	</script>
 </body>

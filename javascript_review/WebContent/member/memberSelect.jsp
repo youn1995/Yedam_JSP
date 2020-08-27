@@ -15,5 +15,18 @@
 	<div><span class="label">성별: </span><span> ? </span></div>
 	<div><span class="label">메일수신여부: </span><span> ? </span></div>
 	<div><span class="label">가입동기: </span><span> ? </span></div>
+	<div>
+		<button type="button" id="btnBack">목록</button>
+	</div>
+	
+	<script>
+		btnBack.addEventListener("click",function(){
+			//history.back();
+			//history.go(-1); //이전페이지로 이동
+			//location.href="memberAll.jsp"
+			location.assign("memberAll.jsp");
+		});
+		
+	</script>
 </body>
 </html>

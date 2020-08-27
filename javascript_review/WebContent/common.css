@@ -1,6 +1,12 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
+/*메뉴 선택시 사용*/
+.menuActive {
+	background-color : yellowgreen;
+	color : black;
+}
+
 #members {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -11,6 +17,7 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
+
 
 #members tr:nth-child(even){background-color: #f2f2f2;}
 

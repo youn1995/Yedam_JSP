@@ -7,7 +7,7 @@
 <title>js_table.jsp</title>
 </head>
 <body>
-<table>
+<table border="1">
 	<tbody id="members"></tbody>
 </table>
 <script>

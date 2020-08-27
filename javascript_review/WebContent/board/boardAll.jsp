@@ -11,8 +11,8 @@
 	<h3 class="page_title">게시글조회</h3>
 	<div>
 	<ul class="search">
-		<li>메일수신여부</li>
-		<li>성별</li>
+		<li>게시글번호</li>
+		<li>작성일짜</li>
 		<li><button type="button">검색</button></li>
 	</ul>
 	</div>

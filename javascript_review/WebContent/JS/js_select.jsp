@@ -12,6 +12,13 @@
 	<button type="button" id="btnRemove" onclick="removeFruit()">삭제</button>
 	<select id="listFruit" size="10"></select>
 	<script>
+	txtFruit.addEventListener("keypress", function(){
+		if(event.keyCode == 13){
+			addFruit();
+		}
+	})
+	
+	
 	function addFruit(){
 		  var option = document.createElement("option");
 		  if(txtFruit.value != ""){
