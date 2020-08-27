@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-	//tbody의 2열의 국어 성적의 합계를 계산하여 span 태그에 출력
+	$(window).on("load", function(){
+		var $tr = $("tbody").children()
+		var sum = 0;
+		$tr.each(function(i){
+	    	sum += parseInt($tr.eq(i).children().eq(1).html());
+	    });
+		$("#kor").html(sum);
+	});
 	
 </script>
 </head>
