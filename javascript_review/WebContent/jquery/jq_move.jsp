@@ -29,6 +29,13 @@
 				$("#img1").css("top",(parseInt($("#img1").css("top"))+10)+"px");
 			}
 		});
+		
+
+		$(document).on("mousemove", movemouse);
+		function movemouse(){
+			$("#img1").css("left", event.clientX + "px");
+			$("#img1").css("top", event.clientY + "px");
+		};
 	});
 </script>
 </head>

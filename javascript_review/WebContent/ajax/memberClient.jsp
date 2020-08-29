@@ -27,6 +27,7 @@ span {display : inline-block;
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
 	//버튼 클릭 이벤트 작성
+	var name;
 	$(function(){
 		$(".col").eq(0).on("click", "button", function(){
 			var url = "./server/"+$(this).parent().children().eq(0).text()+".json";
@@ -38,9 +39,19 @@ span {display : inline-block;
 				$("[name=gender]").val([obj.gender]);
 				$("[name=mailyn]").val([obj.mailyn]);
 				//$("[name=regDate]")
+				name = obj.id;
 			});
 		});
 		
+		$("#btnDel").on("click", function(){
+			$("span:contains("+name+")").parent().remove();
+			$("#id").val("");
+			$("#pw").val("");
+			$("#reason").text("");
+			$("#job").val("");
+			$("[name=gender]").val([""]);
+			$("[name=mailyn]").val([""]);
+		});
 		
 		
 	});
