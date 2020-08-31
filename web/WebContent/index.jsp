@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<form action="deptInsert">
-	id<input name="department_id"><br>
-	name<input name="department_name"><br>
-	<button>등록</button>
-</form>
+<a href="dept/DeptInsertFormServ">부서등록폼</a>
 </body>
 </html>

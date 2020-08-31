@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DeptInsertForm.jsp</title>
 </head>
 <body>
-
 <form action="deptInsert">
 	id<input name="department_id"><br>
 	name<input name="department_name"><br>
