@@ -7,7 +7,7 @@
 <title>DeptInsertForm.jsp</title>
 </head>
 <body>
-<form action="deptInsert">
+<form action="deptInsert" method="post">
 	id<input name="department_id"><br>
 	name<input name="department_name"><br>
 	<button>등록</button>

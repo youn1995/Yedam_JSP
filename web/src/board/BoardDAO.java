@@ -15,7 +15,7 @@ public class BoardDAO {
    ResultSet rs = null;
 
    // 전체조회
-   public ArrayList<BoardVo> selectAll() {
+   public ArrayList<BoardVo> selectAll(BoardVo boardVo) {
       BoardVo resultVO = null;
       ArrayList<BoardVo> list = new ArrayList<BoardVo>();
       try {
@@ -77,7 +77,7 @@ public class BoardDAO {
    public void delete(BoardVo boardVo) {
       try {
          conn = ConnectionManager.getConnnect();
-         String sql = "delete from board where no=?";
+         String sql = "DELETE FROM BOARD WHERE NO=?";
          pstmt = conn.prepareStatement(sql);
          pstmt.setString(1, boardVo.getNo());
          int r = pstmt.executeUpdate();
@@ -93,7 +93,7 @@ public class BoardDAO {
    public void update(BoardVo boardVo) {
       try {
          conn = ConnectionManager.getConnnect();
-         String sql = "update board set  = ? where no=?";
+         String sql = "UPDATE BOARD SET SUBJECT = ? WHERE NO=?";
          pstmt = conn.prepareStatement(sql);
          pstmt.setString(1, boardVo.getSubject());
          pstmt.setString(2, boardVo.getNo());
@@ -110,7 +110,7 @@ public class BoardDAO {
    public void insert(BoardVo boardVo) {
       try {
          conn = ConnectionManager.getConnnect();
-         String sql = "insert into board values (?,?,?,?,?,?,?)";
+         String sql = "INSERT INTO BOARD VALUES (?,?,?,?,?,?,?)";
          pstmt = conn.prepareStatement(sql);
          pstmt.setString(1, boardVo.getNo());
          pstmt.setString(2, boardVo.getPoster());

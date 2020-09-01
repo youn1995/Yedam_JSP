@@ -1,21 +1,26 @@
-package dept;
+package member;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/dept/deptInsert")
-public class DeptInsertServ extends HttpServlet {
+/**
+ * Servlet implementation class MemberSelectAllServ
+ * 회원전체조회   
+ */
+@WebServlet("/member/memberSelectAll.do")
+public class MemberSelectAllServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeptInsertServ() {
+    public MemberSelectAllServ() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -24,14 +29,13 @@ public class DeptInsertServ extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("dept 등록실행");
-		DeptDAO dao = new DeptDAO();
-		DeptVo deptVo = new DeptVo();
-		deptVo.setDepartment_id(Integer.parseInt(request.getParameter("department_id")));
-		deptVo.setDepartment_name(request.getParameter("department_name"));
-		dao.insert(deptVo);
-		//전체 조회 서블릿 페이지로 이동
-		response.sendRedirect("deptSelectAll");  //처리후 완전히 다른 처리를 할떄는 send
+		//전체조회페이지로 이동
+		
+		MemberDAO dao = new MemberDAO();
+		ArrayList<MemberVo> list = dao.selectAll(null);
+		
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("memberAll.jsp").forward(request, response);
 	}
 
 	/**

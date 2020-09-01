@@ -7,10 +7,15 @@ public class MemberVo {
 	private String gender;
 	private String mailyn;
 	private String reason;
+	private String hobby;
+	private String regdate;
 	
 	public MemberVo() {}
 	
-	public MemberVo(String id, String pw, String job, String gender, String mailyn, String reason) {
+	
+	
+	public MemberVo(String id, String pw, String job, String gender, String mailyn, String reason, String hobby,
+			String regdate) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -18,7 +23,28 @@ public class MemberVo {
 		this.gender = gender;
 		this.mailyn = mailyn;
 		this.reason = reason;
+		this.hobby = hobby;
+		this.regdate = regdate;
 	}
+
+
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+
 	
 	public String getId() {
 		return id;
