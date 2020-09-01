@@ -110,15 +110,13 @@ public class BoardDAO {
    public void insert(BoardVo boardVo) {
       try {
          conn = ConnectionManager.getConnnect();
-         String sql = "INSERT INTO BOARD VALUES (?,?,?,?,?,?,?)";
+         String sql = "INSERT INTO BOARD VALUES (?,?,?,?,SYSDATE,0,?)";
          pstmt = conn.prepareStatement(sql);
          pstmt.setString(1, boardVo.getNo());
          pstmt.setString(2, boardVo.getPoster());
          pstmt.setString(3, boardVo.getSubject());
          pstmt.setString(4, boardVo.getContents());
-         pstmt.setString(5, boardVo.getLastpost());
-         pstmt.setString(6, boardVo.getViews());
-         pstmt.setString(7, boardVo.getFilename());
+         pstmt.setString(5, boardVo.getFilename());
          int r = pstmt.executeUpdate(sql);
          System.out.println(r + "건이 처리됨.");
       } catch (SQLException e) {
