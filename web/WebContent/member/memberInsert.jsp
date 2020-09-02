@@ -39,6 +39,7 @@
 </script>
 </head>
 <body>
+<%@include file="/common/header.jsp" %>
 	<h3 class="page_title">회원등록</h3>
 	<div class="regist">
 		<form method="post" name="frm" id="frm" action="memberInsert.do"
@@ -67,7 +68,7 @@
 			</div>
 			<div>
 				<label for="mailYn">메일수신여부</label>
-				<input type="checkbox" id="mailYn" name="mailYn"> 
+				<input type="checkbox" id="mailyn" name="mailyn"> 
 			</div>
 			<div>
 				<label for="reason">가입동기</label>

@@ -32,7 +32,7 @@ public class BoardSelectAllServ extends HttpServlet {
 		ArrayList<BoardVo> list = dao.selectAll(null);
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("boardAll.jsp").forward(request, response);;
+		request.getRequestDispatcher("boardSelectAll.jsp").forward(request, response);;
 	}
 
 	/**

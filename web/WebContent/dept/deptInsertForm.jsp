@@ -7,6 +7,7 @@
 <title>DeptInsertForm.jsp</title>
 </head>
 <body>
+<%@include file="/common/header.jsp" %>
 <form action="deptInsert" method="post">
 	id<input name="department_id"><br>
 	name<input name="department_name"><br>

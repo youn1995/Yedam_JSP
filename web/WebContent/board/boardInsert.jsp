@@ -12,6 +12,7 @@
 </script>
 </head>
 <body>
+<%@include file="/common/header.jsp" %>
 	<h3 class="page_title">게시글등록</h3>
 	<div class="regist">
 		<form method="post" name="frm" id="frm" action="boardInsert.do"

@@ -7,6 +7,7 @@
 <title>deptSelect.jsp</title>
 </head>
 <body>
+<%@include file="/common/header.jsp" %>
 	<h3>부서상세조회</h3>
 	<table>
 		<tr>

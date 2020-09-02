@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/common/header.jsp" %>
 	<h3 class="page_title">회원 전체 조회</h3>
 	<div>
 	<ul class="search">
