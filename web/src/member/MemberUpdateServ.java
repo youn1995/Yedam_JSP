@@ -41,9 +41,14 @@ public class MemberUpdateServ extends HttpServlet {
 		if(memVo.getJob().equals("")) {
 			memVo.setJob(member.getJob());
 		}
-		if(memVo.getMailyn() == null) {
-			memVo.setMailyn(member.getMailyn());
+
+		String mail = null;
+		if (memVo.getMailyn() != null) {
+			mail = "Y";
+		} else {
+			mail = "N";
 		}
+		memVo.setMailyn(mail);
 		
 		String strHobby = "";
 		String[] hobby = request.getParameterValues("hobby");
@@ -61,6 +66,7 @@ public class MemberUpdateServ extends HttpServlet {
 		}
 		
 		MemberDAO.getInstance().update(memVo);
+		request.getSession().setAttribute("login", memVo);
 		response.sendRedirect("memberSelectAll.do");
 	}
 

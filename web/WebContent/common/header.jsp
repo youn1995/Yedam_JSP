@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 
 <%--ShareObject obj1 = (ShareObject) application.getAttribute("data1"); 
 if(obj1==null) {
@@ -12,18 +13,18 @@ obj2.setCount(obj2.getCount()+1);--%>
 <%--=obj2.getCount() --%> : <%--=obj2.getStr() --%>
 <%-- } --%>
  -->
- 
-<%String id = (String) session.getAttribute("id"); %>
+
 <ul>
 <!-- html에서 /를 앞에쓰는거는 localhost 부터 -->
 <!-- servlet forword /는 web부터 -->
-
-<% if(id == null) { %>
+<c:if test="${empty sessionScope.id}">
 <li><a href="/web/member/login.jsp">로그인</a>
-<% } else { %>
-<li><%=id%>님 <a href="/web/member/logout">로그아웃</a>
+</c:if>
+<c:if test="${not empty sessionScope.id}">
+<li>${sessionScope.id}님 <a href="/web/member/logout">로그아웃</a>
+</c:if>
 <li><a href="/web/member/memberUpdate">내정보수정</a>
-<% } %>
+
 
 <li><a href="/web/board/boardInsert.do">보드입력</a>
 <li><a href="/web/dept/DeptInsertFormServ">부서등록폼</a>

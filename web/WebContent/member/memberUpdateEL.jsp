@@ -30,13 +30,11 @@
 			<div>
 				<label for="gender">성별</label> <input type="radio" id="male"
 					name="gender" value="m"
-					<c:if test="${login.gender=='m'}">checked="checked" </c:if>
+					<c:if test="${login.gender=='m'}">checked="checked" </c:if>>
 					<label for="male">남</label>
 					<input type="radio" id="female"
 					name="gender" value="f"
-					<%if ("f".equals(member.getGender())) {
-	out.print("checked='checked'");
-}%>>
+					<c:if test="${login.gender=='f'}">checked="checked" </c:if>>
 				<label for="female">여</label>
 			</div>
 

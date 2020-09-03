@@ -71,7 +71,7 @@
 			</div>
 			<div>
 				<label for="reason">가입동기</label>
-				<textarea name="reason" rows="10" cols="30"> <%=member.getReason()%> </textarea>
+				<textarea name="reason" rows="10" cols="30"><%=member.getReason()%></textarea>
 			</div>
 			<div>
 				<!-- indexed -->

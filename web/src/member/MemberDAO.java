@@ -29,7 +29,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = "SELECT ID, PW, JOB, GENDER, MAILYN, REASON" + " FROM MEMBER" + " WHERE ID = ?";
+			String sql = "SELECT ID, PW, JOB, GENDER, MAILYN, REASON, HOBBY" + " FROM MEMBER" + " WHERE ID = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberVo.getId());
 			rs = pstmt.executeQuery();
@@ -41,6 +41,7 @@ public class MemberDAO {
 				resultVo.setGender(rs.getString(4));
 				resultVo.setMailyn(rs.getString(5));
 				resultVo.setReason(rs.getString(6));
+				resultVo.setHobby(rs.getString(7));
 			} else {
 				System.out.println("No data");
 			}
