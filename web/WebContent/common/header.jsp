@@ -21,13 +21,14 @@ obj2.setCount(obj2.getCount()+1);--%>
 <li><a href="/web/member/login.jsp">로그인</a>
 </c:if>
 <c:if test="${not empty sessionScope.id}">
+<li><a href="/web/member/memberUpdate">내정보수정</a>
 <li>${sessionScope.id}님 <a href="/web/member/logout">로그아웃</a>
 </c:if>
-<li><a href="/web/member/memberUpdate">내정보수정</a>
-
 
 <li><a href="/web/board/boardInsert.do">보드입력</a>
-<li><a href="/web/dept/DeptInsertFormServ">부서등록폼</a>
+<li><a href="/web/dept/deptInsert">부서등록폼</a>
+<li><a href="/web/dept/empInsertServ">직원입력</a>
+<li><a href="/web/dept/empSelectAll">직원전체조회</a>
 <li><a href="/web/dept/deptSelectAll">부서전체조회</a>
 <li><a href="<%=application.getContextPath() %>/member/memberInsert.do">멤버입력</a>
 <li><a href="/web/member/memberSelectAll.do">멤버전체조회</a>

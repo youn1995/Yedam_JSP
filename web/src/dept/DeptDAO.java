@@ -102,8 +102,8 @@ public class DeptDAO {
 			// 1.DB연결
 			conn = ConnectionManager.getConnnect();
 			// 2.sql 구문실행
-			String sql = "insert into hr.departments (department_id, department_name) values(" + deptVo.getDepartment_id()
-					+ ",'" + deptVo.getDepartment_name() + "')";
+			String sql = "insert into hr.departments (department_id, department_name, location_id, manager_id) values(" + deptVo.getDepartment_id()
+					+ ",'" + deptVo.getDepartment_name() + "',"+ deptVo.getLocation_id()+"," + deptVo.getManager_id()+")";
 			Statement stmt = conn.createStatement(); // STATEMENT는 sql 구문을 완벽하게 해줘야함
 			int r = stmt.executeUpdate(sql);
 			// 3.결과처리
