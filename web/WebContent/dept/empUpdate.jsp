@@ -43,11 +43,11 @@
     <div><label>manager_id</label> <select name="manager_id">
     	      <option value="">음슴
 		<c:forEach items="${empList}" var="emps">
-		<c:if test="${emps.employee_id == emp.employee_id}">
+		<c:if test="${emps.employee_id == emp.manager_id}">
 			<option value="${emps.employee_id}" selected="selected"> ${emps.first_name} ${emp.last_name}
 			</option>
 			</c:if>
-			<c:if test="${emps.employee_id != emp.employee_id}">
+			<c:if test="${emps.employee_id != emp.manager_id2}">
 			<option value="${emps.employee_id}"> ${emps.first_name} ${emp.last_name}
 			</option>
 			</c:if>

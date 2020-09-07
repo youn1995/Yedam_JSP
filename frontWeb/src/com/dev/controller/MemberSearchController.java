@@ -1,0 +1,33 @@
+package com.dev.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.dev.model.MemberDAO;
+import com.dev.model.MemberVo;
+
+public class MemberSearchController implements Controller {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("서브컨트롤러 조회 실행");
+		String id = request.getParameter("id");
+		if (id.isEmpty()) {
+			request.setAttribute("error", "id를 입력");
+			request.getRequestDispatcher("/member/memberSearch.jsp").forward(request, response);
+		} else {
+			MemberVo memVo = new MemberVo();
+			memVo.setId(id);
+			memVo = MemberDAO.getInstance().selectOne(memVo);
+			if(memVo ==null) {
+				request.setAttribute("error", "없는사용자입니다");
+			}
+			request.setAttribute("memVo", memVo);
+			request.getRequestDispatcher("/member/memberSearchOutput.jsp").forward(request, response);
+		}
+	}
+
+}
