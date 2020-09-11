@@ -19,14 +19,7 @@ public class MemberUpdateController implements Controller {
 		System.out.println("서브컨트롤러 업데이트 실행");
 
 		MemberVo memVo = new MemberVo();
-		try {
-			BeanUtils.copyProperties(memVo, request.getParameterMap());
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		}
-
+		 
 		// 유효성처리
 		if (memVo.getMailyn() != null) {
 			memVo.setMailyn("Y");

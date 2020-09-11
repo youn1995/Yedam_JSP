@@ -11,6 +11,34 @@ public class DeptDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	
+	//전체 건수 
+		public int count(DeptVo deptVo) {
+			ResultSet rs = null;
+			int cnt = 0;
+			try {
+				conn = ConnectionManager.getConnnect();
+				String where = "where 1=1";
+				if(deptVo.getDepartment_name() != null) {
+					where += " and department_name like '%' || ? || '%'";
+				}
+				String sql = "select count(*) from hr.departments " + where;
+				pstmt = conn.prepareStatement(sql);
+				int pos = 1;
+				if (deptVo.getDepartment_name() != null) {
+					pstmt.setString(pos++, deptVo.getDepartment_name());
+				}
+				rs = pstmt.executeQuery();
+				rs.next();
+				cnt = rs.getInt(1);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				ConnectionManager.close(conn);
+			}
+			return cnt;
+		}
+	
+	
 	public ArrayList<DeptVo> selectAll(DeptVo deptVo) {
 		ArrayList<DeptVo> list = new ArrayList<>();
 		DeptVo resultVo = null;
@@ -38,6 +66,48 @@ public class DeptDAO {
 		return list;
 	}
 	
+	public ArrayList<DeptVo> selectAllPage(DeptVo deptVo) {
+		ArrayList<DeptVo> list = new ArrayList<>();
+		DeptVo resultVo = null;
+		ResultSet rs = null;
+		try {
+			conn = ConnectionManager.getConnnect();
+			String where = "where 1=1";
+			if(deptVo.getDepartment_name() != null) {
+				where += " and department_name like '%' || ? || '%'";
+			}
+			
+			String sql = "SELECT A.*  FROM ( SELECT ROWNUM RN, B.*  FROM ( " + 
+					"    SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID AS MGR_ID, LOCATION_ID " + 
+					" FROM HR.DEPARTMENTS "
+					+ where + 
+					" ORDER BY DEPARTMENT_ID   " + 
+					 ") B ) A WHERE RN BETWEEN ? AND ?";
+			pstmt = conn.prepareStatement(sql);
+			int pos = 1;
+			if (deptVo.getDepartment_name() != null) {
+				pstmt.setString(pos++, deptVo.getDepartment_name());
+			}
+			pstmt.setInt(pos++, deptVo.getStartNum());
+			pstmt.setInt(pos++, deptVo.getLastNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				resultVo = new DeptVo();
+				resultVo.setDepartment_id(rs.getInt(1));
+				resultVo.setDepartment_name(rs.getString("department_name"));
+				resultVo.setManager_id(rs.getInt("mgr_id"));
+				resultVo.setLocation_id(rs.getInt("LOCATION_ID"));
+				list.add(resultVo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionManager.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
 	public DeptVo selectOne(DeptVo deptVo) {
 		DeptVo resultVo = null;
 		ResultSet rs = null;
@@ -47,6 +117,7 @@ public class DeptDAO {
 						+ " FROM hr.departments"
 						+ " WHERE DEPARTMENT_ID = ?"; //ctrl+shift+x,y 대문자 소문자 바꾸는거
 			pstmt = conn.prepareStatement(sql);
+		
 			pstmt.setInt(1, deptVo.getDepartment_id());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {

@@ -5,13 +5,32 @@ public class DeptVo {
 	private String department_name;
 	private Integer manager_id;
 	private Integer location_id;
+	private Integer startNum;
+	private Integer lastNum;
 
-	public DeptVo() {}
-	
+	public Integer getStartNum() {
+		return startNum;
+	}
+
+	public void setStartNum(Integer startNum) {
+		this.startNum = startNum;
+	}
+
+	public Integer getLastNum() {
+		return lastNum;
+	}
+
+	public void setLastNum(Integer lastNum) {
+		this.lastNum = lastNum;
+	}
+
+	public DeptVo() {
+	}
+
 	public DeptVo(Integer department_id) {
 		this.department_id = department_id;
 	}
-	
+
 	public DeptVo(Integer department_id, String department_name) {
 		super();
 		this.department_id = department_id;

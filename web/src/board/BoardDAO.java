@@ -20,7 +20,7 @@ public class BoardDAO {
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		try {
 			conn = ConnectionManager.getConnnect();
-			String sql = "SELECT NO, POSTER, SUBJECT, CONTENTS, LASTPOST, VIEWS, FILENAME " + "FROM BOARD "
+			String sql = "SELECT NO, POSTER, SUBJECT, CONTENTS, LASTPOST, VIEWS, FILENAME " + " FROM board "
 					+ "ORDER BY NO";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -111,13 +111,13 @@ public class BoardDAO {
 		try {
 			conn = ConnectionManager.getConnnect();
 			conn.setAutoCommit(false);
-			String seqSql = "SELECT NO FROM SEQ WHERE UPPER(TABLENAME) ='BOARD'";
+			String seqSql = "SELECT NO FROM SEQ WHERE TABLENAME ='board'";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(seqSql);
 			rs.next();
 			int no = rs.getInt(1);
 			
-			seqSql = "UPDATE SET NO = NO + 1 WHERE UPPER(TABLENAME) = 'BOARD'";
+			seqSql = "UPDATE SEQ SET NO = NO + 1 WHERE TABLENAME = 'board'";
 			stmt = conn.createStatement();
 			stmt.executeUpdate(seqSql);
 

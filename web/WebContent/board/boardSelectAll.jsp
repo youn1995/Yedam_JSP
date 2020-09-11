@@ -2,7 +2,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,21 +22,24 @@
 				<th>작성일</th>
 				<th>조회수</th>
 				<th>파일명</th>
+				<th>이미지</th>
 			</tr>
 		</thead>
 		<tbody>
-		<% ArrayList<BoardVo> list = (ArrayList<BoardVo>) request.getAttribute("list"); 
-for(BoardVo boa: list) { %>
+
+<c:forEach items="${list}" var="boa">
 			<tr>
-				<td><a href="boardSelect.jsp"><%=boa.getNo()%></a></td>
-				<td><%=boa.getPoster()%></td>
-				<td><%=boa.getSubject()%></td>
-				<td><%=boa.getContents()%></td>
-				<td><%=boa.getLastpost()%></td>
-				<td><%=boa.getViews()%></td>
-				<td><%=boa.getFilename()%></td>
+				<td><a href="boardSelect.jsp">${boa.no}</a></td>
+				<td>${boa.poster}</td>
+				<td>${boa.subject}</td>
+				<td>${boa.contents}</td>
+				<td>${boa.lastpost}</td>
+				<td>${boa.views}</td>
+				<td><a href="download.do?filename=${boa.filename}">${boa.filename }</a></td>
+				<td><c:if test="${not empty boa.filename }">
+					<img src="../images/${boa.filename}" style ="width:50px">	</c:if></td>
 			</tr>
-<% } %>			
+</c:forEach>	
 		</tbody>
 	</table>
 </body>
