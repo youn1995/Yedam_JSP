@@ -107,7 +107,8 @@ public class BoardDAO {
 	}
 
 	// 삽입
-	public void insert(BoardVo boardVo) {
+	public int insert(BoardVo boardVo) {
+		int no = 0;
 		try {
 			conn = ConnectionManager.getConnnect();
 			conn.setAutoCommit(false);
@@ -115,7 +116,7 @@ public class BoardDAO {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(seqSql);
 			rs.next();
-			int no = rs.getInt(1);
+			no = rs.getInt(1);
 			
 			seqSql = "UPDATE SEQ SET NO = NO + 1 WHERE TABLENAME = 'board'";
 			stmt = conn.createStatement();
@@ -143,5 +144,7 @@ public class BoardDAO {
 		} finally {
 			ConnectionManager.close(conn);
 		}
+		
+		return no;
 	}
 }
