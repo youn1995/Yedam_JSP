@@ -1,4 +1,4 @@
-package com.dev.controller;
+package com.dev.controller.member;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import com.dev.model.MemberDAO;
+import com.dev.common.Controller;
+import com.dev.dao.MemberDAO;
 import com.dev.model.MemberVo;
 
 public class MemberInsertController implements Controller {

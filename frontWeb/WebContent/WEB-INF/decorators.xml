@@ -11,5 +11,8 @@
 	<excludes>
 		<pattern>/board/*</pattern>
 		<pattern>/member/memberInsert.jsp</pattern>
+		<pattern>/ajax/*</pattern>
 	</excludes>
+	
+	
 </decorators>
